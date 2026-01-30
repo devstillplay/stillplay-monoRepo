@@ -81,24 +81,28 @@ export default function DashboardSidebar({
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <Button
+              <Link
                 key={item.href}
-                component={Link}
                 href={item.href}
-                onClick={onNavigate}
-                variant="text"
-                startIcon={item.icon}
-                sx={{
-                  justifyContent: "flex-start",
-                  color: isActive ? "#f59e0b" : "text.primary",
-                  backgroundColor: isActive ? "#f3f3f3" : "transparent",
-                  borderRadius: 999,
-                  paddingY: 1,
-                  paddingX: 2,
-                }}
+                style={{ textDecoration: "none" }}
               >
-                {item.label}
-              </Button>
+                <Button
+                  fullWidth
+                  variant="text"
+                  startIcon={item.icon}
+                  onClick={onNavigate}
+                  sx={{
+                    justifyContent: "flex-start",
+                    color: isActive ? "#f59e0b" : "text.primary",
+                    backgroundColor: isActive ? "#f3f3f3" : "transparent",
+                    borderRadius: 999,
+                    paddingY: 1,
+                    paddingX: 2,
+                  }}
+                >
+                  {item.label}
+                </Button>
+              </Link>
             );
           })}
         </Stack>
